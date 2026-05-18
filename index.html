@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vương Tài - Truyện Chữ Online</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>Vương Tài</h1>
+        <p>Tác giả: Tiểu Thuyết Gia</p>
+    </header>
+
+    <main class="container">
+        <section class="intro">
+            <h2>Giới Thiệu</h2>
+            <p>Đây là không gian đọc truyện Vương Tài. Hành trình đầy ly kỳ, hấp dẫn của nhân vật chính trong thế giới đầy biến động. Hãy cùng theo dõi các chương mới nhất ngay dưới đây!</p>
+        </section>
+
+        <section class="chapter-list">
+            <h2>Danh Sách Chương</h2>
+            <ul id="chapters">
+                <li><a href="#" onclick="loadChapter('Chương 1: Khởi Đầu Mới', 'Nội dung Chương 1 đang được cập nhật...')">Chương 1: Khởi Đầu Mới</a></li>
+                <li><a href="#" onclick="loadChapter('Chương 2: Sóng Gió Nổi Lên', 'Nội dung Chương 2 đang được cập nhật...')">Chương 2: Sóng Gió Nổi Lên</a></li>
+                <li><a href="#" onclick="loadChapter('Chương 3: Bí Mật Bật Mí', 'Nội dung Chương 3 đang được cập nhật...')">Chương 3: Bí Mật Bật Mí</a></li>
+            </ul>
+        </section>
+
+        <!-- Khu vực hiển thị nội dung chương khi bấm vào -->
+        <section id="reading-area" class="reading-area" style="display:none;">
+            <h2 id="chapter-title"></h2>
+            <div id="chapter-content"></div>
+            <button onclick="closeChapter()">Đóng lại</button>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Little Reading Novel Hub. Powered by GitHub Pages.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
