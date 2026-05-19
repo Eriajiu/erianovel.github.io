@@ -1,0 +1,552 @@
+/* ==========================================================================
+   DESIGN SYSTEM - VƯỢNG TÀI SYSTEM DESIGN
+   ========================================================================== */
+
+:root {
+    /* --- Color Palette --- */
+    --color-primary-text: #2F2A2A;   /* Deep Brown */
+    --color-primary-action: #F28B82; /* Warm Coral */
+    --color-accent-hover: #E67065;   /* Muted Coral */
+    --color-accent-active: #D96F6F;  /* Dusty Red / Active state */
+    --color-accent-blue: #A5C4D4;    /* Accent Blue */
+    --color-accent-green: #82B995;   /* Accent Green */
+    
+    --color-neutral-muted: #746D6D;  /* Warm Gray */
+    --color-neutral-dark: #000000;   /* Black for accessibility */
+    --color-border: #F0E5E5;         /* Border Gray */
+    
+    /* Surfaces */
+    --color-surface-cream: #FFF3F1;  /* Soft Cream */
+    --color-surface-beige: #F8F1EF;  /* Light Beige */
+    --color-surface-pale: #FFFBFB;   /* Pale Cream */
+    --color-surface-white: #FDF8F0;  /* Warm White document background */
+    --color-white: #FFFFFF;
+
+    /* --- Border Radius Scale --- */
+    --radius-tight: 0px;
+    --radius-subtle: 12px;
+    --radius-card-details: 25.6px;
+    --radius-card-showcase: 28.8px;
+    --radius-card-story: 38.4px;
+    --radius-pill: 999px;
+
+    /* --- Spacing System (Base 4px) --- */
+    --space-2: 8px;
+    --space-3: 12px;
+    --space-4: 16px;
+    --space-5: 20px;
+    --space-6: 24px;
+    --space-7: 28px;
+    --space-8: 32px;
+    --space-9: 36px;
+    --space-10: 40px;
+    --space-11: 44px;
+    --space-12: 48px;
+    --space-xl: 72px;
+
+    /* --- Depth & Elevation Shadows --- */
+    --shadow-level-0: none;
+    --shadow-level-1: rgba(31, 22, 22, 0.05) 0px 8px 24px 0px;
+    --shadow-level-2: rgba(242, 139, 130, 0.28) 0px 24px 60px 0px;
+    --shadow-level-3: rgba(242, 139, 130, 0.28) 0px 24px 60px 0px, 0px 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* --- Base Reset & Setup --- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--color-primary-text);
+    background-color: var(--color-surface-white);
+    -webkit-font-smoothing: antialiased;
+}
+
+/* --- Typography Hierarchy --- */
+.display-title {
+    font-family: 'Lora', Georgia, serif;
+    font-size: 63.36px;
+    font-weight: 700;
+    line-height: 66.528px;
+    letter-spacing: 0px;
+    color: var(--color-primary-text);
+}
+
+.h1-title {
+    font-family: 'Lora', Georgia, serif;
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 51.2px;
+    color: var(--color-primary-text);
+    margin-bottom: var(--space-6);
+}
+
+.h2-title {
+    font-family: 'Lora', Georgia, serif;
+    font-size: 28.8px;
+    font-weight: 700;
+    line-height: 46.08px;
+    color: var(--color-primary-text);
+}
+
+.h3-title {
+    font-family: 'Lora', Georgia, serif;
+    font-size: 16.8px;
+    font-weight: 700;
+    line-height: 23.52px;
+    color: var(--color-primary-text);
+}
+
+.body-text {
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 25.6px;
+    color: var(--color-neutral-muted);
+}
+
+.label-text {
+    font-family: 'Inter', sans-serif;
+    font-size: 13.3333px;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.label-emphasis {
+    font-family: 'Inter', sans-serif;
+    font-size: 13.3333px;
+    font-weight: 700;
+    line-height: 17.3333px;
+}
+
+/* --- Layout & Containers --- */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-left: var(--space-10);
+    padding-right: var(--space-10);
+}
+
+.section-block {
+    padding-top: var(--space-10);
+    padding-bottom: var(--space-10);
+}
+
+.divider {
+    border: none;
+    border-top: 1px solid var(--color-border);
+    margin: var(--space-8) 0;
+}
+
+/* --- Component Styles: Buttons --- */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Inter', sans-serif;
+    font-size: 13.3333px;
+    font-weight: 700;
+    line-height: 17.3333px;
+    padding: 10px 16px;
+    border-radius: var(--radius-pill);
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    text-decoration: none;
+    min-height: 44px; /* iOS standard compliance */
+    min-width: 100px;
+}
+
+.btn-primary {
+    background-color: var(--color-primary-action);
+    color: var(--color-white);
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: var(--color-accent-hover);
+}
+
+.btn-primary:active {
+    background-color: var(--color-accent-active);
+    box-shadow: var(--shadow-level-1);
+}
+
+.btn-secondary {
+    background-color: var(--color-white);
+    color: var(--color-neutral-muted);
+    border: 1px solid var(--color-border);
+}
+
+.btn-secondary:hover {
+    background-color: var(--color-surface-beige);
+    border-color: var(--color-accent-active);
+}
+
+.btn-secondary:active {
+    border-color: var(--color-primary-action);
+    color: var(--color-primary-text);
+}
+
+.btn-ghost {
+    background-color: var(--color-white);
+    color: var(--color-neutral-muted);
+    border: 1px solid var(--color-border);
+    width: 42px;
+    height: 42px;
+    min-width: 44px; /* Touch target fix */
+    min-height: 44px;
+    padding: 0;
+    border-radius: var(--radius-pill);
+}
+
+.btn-ghost:hover {
+    background-color: var(--color-surface-cream);
+    border-color: var(--color-accent-hover);
+}
+
+.btn-ghost:active {
+    background-color: var(--color-primary-action);
+    color: var(--color-white);
+}
+
+/* --- Component Styles: Navigation Bar --- */
+.navbar {
+    background-color: var(--color-white);
+    border-bottom: 1px solid var(--color-border);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 var(--space-4);
+    height: 44px; /* Thỏa mãn touch target tối thiểu */
+}
+
+.nav-logo {
+    font-family: 'Lora', serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--color-primary-text);
+    text-decoration: none;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: var(--space-6);
+}
+
+.nav-item {
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--color-primary-text);
+    text-decoration: none;
+    line-height: 25.6px;
+    padding: var(--space-2) 0;
+    transition: all 0.2s ease;
+    border-bottom: 2px solid transparent;
+}
+
+.nav-item:hover {
+    color: var(--color-primary-action);
+    font-weight: 600;
+}
+
+.nav-item.active {
+    color: var(--color-primary-action);
+    font-weight: 600;
+    border-bottom: 2px solid var(--color-primary-action);
+}
+
+.nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: var(--color-primary-text);
+    cursor: pointer;
+}
+
+/* --- Component Styles: Hero --- */
+.hero-section {
+    background-color: var(--color-surface-cream);
+    padding: var(--space-xl) 0;
+    text-align: center;
+}
+
+.hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-5);
+    max-width: 800px;
+}
+
+.hero-actions {
+    display: flex;
+    gap: var(--space-4);
+    margin-top: var(--space-4);
+}
+
+/* --- Component Styles: Cards Grid --- */
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--space-8);
+    justify-items: center;
+}
+
+/* Base Card class */
+.card {
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+/* 1. Story Card */
+.story-card {
+    background-color: rgba(255, 255, 255, 0.95);
+    color: var(--color-primary-text);
+    padding: var(--space-4);
+    border-radius: var(--radius-card-story);
+    border: 1px solid var(--color-border);
+    box-shadow: var(--shadow-level-2);
+    width: 320px;
+    height: 480px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card-header, .card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* 2. Showcase Card */
+.showcase-card {
+    background-color: transparent;
+    width: 286px;
+    height: 446px;
+    border-radius: var(--radius-card-showcase);
+    border: none;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: flex-end;
+    padding: var(--space-6);
+}
+
+.showcase-title {
+    font-family: 'Inter', sans-serif;
+    font-size: 40px; /* Thực tế thu gọn từ 64px để vừa khung card mobile/desktop */
+    color: var(--color-white);
+    font-weight: 400;
+    line-height: 1.2;
+}
+
+.showcase-card:hover {
+    box-shadow: var(--shadow-level-2);
+    transform: translateY(-4px);
+}
+
+/* 3. Details Card */
+.details-card {
+    background-color: rgba(255, 255, 255, 0.94);
+    color: var(--color-primary-text);
+    border-radius: var(--radius-card-details);
+    border: 1px solid var(--color-border);
+    box-shadow: var(--shadow-level-1);
+    width: 278px;
+    height: 633.547px;
+    display: flex;
+    flex-direction: column;
+}
+
+.details-image {
+    height: 250px;
+    background-size: cover;
+    background-position: center;
+}
+
+.details-content {
+    padding: var(--space-5);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+}
+
+/* --- Tags & Badges --- */
+.tag {
+    background-color: var(--color-surface-cream);
+    color: var(--color-primary-action);
+    font-family: 'Inter', sans-serif;
+    font-size: 13.3333px;
+    font-weight: 400;
+    padding: 6px 12px;
+    border-radius: var(--radius-pill);
+    border: 1px solid var(--color-primary-action);
+    display: inline-block;
+}
+
+.tag-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 13.3333px;
+    font-weight: 700;
+    color: var(--color-primary-action);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.badge {
+    background-color: var(--color-primary-action);
+    color: var(--color-white);
+    font-family: 'Inter', sans-serif;
+    font-size: 13.3333px;
+    font-weight: 700;
+    padding: 4px 8px;
+    border-radius: 12px;
+}
+
+/* --- Form Elements --- */
+.form-container {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+}
+
+.subscribe-form {
+    display: flex;
+    gap: var(--space-3);
+    margin-top: var(--space-4);
+}
+
+.input-group {
+    flex: 1;
+}
+
+.form-input {
+    width: 100%;
+    background-color: var(--color-white);
+    color: var(--color-primary-text);
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    padding: 12px 16px;
+    border-radius: var(--radius-pill);
+    border: 1px solid var(--color-border);
+    line-height: 25.6px;
+    outline: none;
+    min-height: 44px;
+    transition: all 0.2s ease;
+}
+
+.form-input::placeholder {
+    color: var(--color-neutral-muted);
+}
+
+.form-input:focus {
+    border-color: var(--color-primary-action);
+    box-shadow: 0 0 0 3px rgba(242, 139, 130, 0.1);
+}
+
+.form-input:invalid:not(:placeholder-shown) {
+    border-color: var(--color-accent-active);
+}
+
+/* ==========================================================================
+   RESPONSIVE STRATEGY (BREAKPOINTS)
+   ========================================================================== */
+
+/* --- Tablet Slate (≤ 768px) --- */
+@media (max-width: 768px) {
+    .container {
+        padding-left: var(--space-4);
+        padding-right: var(--space-4);
+    }
+    
+    .display-title {
+        font-size: 42px;
+        line-height: 48px;
+    }
+    
+    .section-block {
+        padding-top: var(--space-8);
+        padding-bottom: var(--space-8);
+    }
+}
+
+/* --- Mobile Viewports (≤ 480px) --- */
+@media (max-width: 480px) {
+    .nav-toggle {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 44px;
+        left: 0;
+        right: 0;
+        background-color: var(--color-white);
+        padding: var(--space-4);
+        border-bottom: 1px solid var(--color-border);
+        gap: var(--space-3);
+        box-shadow: var(--shadow-level-1);
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-item {
+        width: 100%;
+        text-align: center;
+    }
+
+    .display-title {
+        font-size: 32px;
+        line-height: 38px;
+    }
+
+    .hero-section {
+        padding: var(--space-9) 0;
+    }
+
+    .hero-actions {
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    .btn {
+        width: 100%;
+    }
+
+    .card-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .story-card, .showcase-card, .details-card {
+        width: 100%; /* Giãn toàn độ rộng màn hình di động */
+    }
+
+    .subscribe-form {
+        flex-direction: column;
+    }
+}
