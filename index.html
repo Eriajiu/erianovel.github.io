@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vượng Tài Design System Showcase</title>
+    <!-- Import Fonts: Lora & Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Lora:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Top Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="nav-logo">Vượng Tài</a>
+            <button class="nav-toggle" aria-label="Toggle Navigation">☰</button>
+            <div class="nav-links">
+                <a href="#" class="nav-item active">Trang Chủ</a>
+                <a href="#" class="nav-item">Truyện Hay</a>
+                <a href="#" class="nav-item">Cộng Đồng</a>
+                <a href="#" class="btn btn-primary">Tham Gia</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero-section">
+        <div class="container hero-content">
+            <span class="tag">Tiêu Điểm Tháng</span>
+            <h1 class="display-title">Nơi những câu chuyện Đông Á tìm thấy tâm hồn đồng điệu</h1>
+            <p class="body-text">Một không gian văn học lắng đọng, tinh tế dành riêng cho những ai đam mê tiểu thuyết, anime và manga. Khám phá những thế giới kỳ vĩ qua từng trang viết cá nhân hóa.</p>
+            <div class="hero-actions">
+                <button class="btn btn-primary">Đọc Ngay</button>
+                <button class="btn btn-secondary">Tìm Hiểu Thêm</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Content Showcase Grid -->
+    <main class="container main-content">
+        
+        <!-- Section: Featured Cards -->
+        <section class="section-block">
+            <h2 class="h1-title">Tác Phẩm Nổi Bật</h2>
+            <div class="card-grid">
+                
+                <!-- 1. Story Card (Featured Content) -->
+                <article class="card story-card">
+                    <div class="card-header">
+                        <span class="tag">Manga</span>
+                        <span class="badge">Xu hướng</span>
+                    </div>
+                    <div class="card-body">
+                        <h3 class="h2-title">Hương Vị Của Gió Đông</h3>
+                        <p class="body-text">Hành trình tìm lại ký ức đã mất của một nghệ nhân làm gốm trẻ tuổi tại một ngôi làng cổ biệt lập mờ sương...</p>
+                    </div>
+                    <div class="card-footer">
+                        <button class="btn btn-secondary">Xem chi tiết</button>
+                        <button class="btn btn-ghost" aria-label="Yêu thích">❤</button>
+                    </div>
+                </article>
+
+                <!-- 2. Showcase Card (Visual/Image Concept) -->
+                <article class="card showcase-card" style="background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.7)), url('https://picsum.photos/id/1015/600/900');">
+                    <div class="showcase-content">
+                        <h3 class="showcase-title">Kỳ Diệu</h3>
+                    </div>
+                </article>
+
+                <!-- 3. Details Card (Tall Context) -->
+                <article class="card details-card">
+                    <div class="details-image" style="background-image: url('https://picsum.photos/id/1033/600/400');"></div>
+                    <div class="details-content">
+                        <span class="tag-label">Biên niên ký</span>
+                        <h3 class="h3-title">Phía Sau Bản Thảo Cổ</h3>
+                        <p class="body-text">Khám phá các tư liệu gốc và nguồn cảm hứng lịch sử tạo nên những kiệt tác văn học kinh điển được yêu thích.</p>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+        <hr class="divider">
+
+        <!-- Section: Interactive & Forms -->
+        <section class="section-block">
+            <div class="form-container">
+                <h2 class="h2-title">Đăng ký nhận bản tin văn học</h2>
+                <p class="body-text">Nhận thông báo về các chương truyện mới nhất và phân tích chuyên sâu hàng tuần từ ban biên tập Vượng Tài.</p>
+                <form class="subscribe-form" onsubmit="event.preventDefault();">
+                    <div class="input-group">
+                        <input type="email" class="form-input" placeholder="Nhập địa chỉ email của bạn..." required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Đăng Ký</button>
+                </form>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Simple Script for Mobile Nav Toggle -->
+    <script>
+        const toggleBtn = document.querySelector('.nav-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        toggleBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>
