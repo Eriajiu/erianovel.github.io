@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thư Viện Tiểu Thuyết Offline</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+</head>
+<body>
+    <header>
+        <h1>Tàng Thư Các Offline</h1>
+        <button id="theme-toggle">Đổi Chế Độ Nền</button>
+    </header>
+
+    <main class="container">
+        <h2>Danh sách truyện đã tải / có sẵn</h2>
+        <div id="novel-list" class="novel-list">
+            <!-- Truyện sẽ được tự động render bằng JS -->
+        </div>
+    </main>
+
+    <script src="app.js"></script>
+    <script>
+        // Đăng ký Service Worker để chạy offline
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('sw.js')
+                .then(() => console.log("Service Worker đã đăng ký thành công!"))
+                .catch(err => console.log("Lỗi đăng ký SW:", err));
+        }
+    </script>
+</body>
+</html>
