@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lorebook - Đa Nền Tảng</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            background-color: #0E1210;
+            color: #E2E8F0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .bg-dark-card { background-color: #171C19; }
+        .app-screen { display: none; }
+        .app-screen.active { display: block; }
+        
+        /* Custom scrollbar cho đẹp */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #0E1210; }
+        ::-webkit-scrollbar-thumb { background: #2A332E; border-radius: 10px; }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+    <header class="lg:hidden flex justify-between items-center p-4 sticky top-0 bg-[#0E1210]/95 backdrop-blur z-50 border-b border-gray-900">
+        <button onclick="toggleMenu()" class="text-xl p-1 text-gray-400 hover:text-white"><i class="fas fa-bars"></i></button>
+        <h1 class="text-xl font-bold tracking-wider text-green-400 cursor-pointer" onclick="switchScreen('screen-home')">Lorebook</h1>
+        <div class="w-8 h-8 rounded-full bg-gradient-to-tr from-emerald-500 to-teal-500 cursor-pointer" onclick="switchScreen('screen-library')"></div>
+    </header>
+
+    <div id="side-menu" class="fixed inset-0 bg-black/70 z-50 hidden lg:hidden transition-opacity duration-300">
+        <div class="w-4/5 max-w-xs bg-[#171C19] h-full p-6 flex flex-col justify-between">
+            <div>
+                <div class="flex justify-between items-center mb-8">
+                    <span class="text-xl font-bold text-green-400"><i class="fas fa-book-open mr-2"></i>Lorebook</span>
+                    <button onclick="toggleMenu()" class="text-xl text-gray-400"><i class="fas fa-times"></i></button>
+                </div>
+                <nav class="space-y-3">
+                    <button onclick="switchScreen('screen-home'); toggleMenu();" class="w-full flex items-center p-3 rounded-xl bg-emerald-950/40 text-green-400 text-left"><i class="fas fa-home mr-4 w-5"></i> Trang chủ</button>
+                    <button onclick="switchScreen('screen-library'); toggleMenu();" class="w-full flex items-center p-3 rounded-xl hover:bg-gray-800 text-left"><i class="fas fa-book mr-4 w-5"></i> Thư viện của bạn</button>
+                    <button onclick="switchScreen('screen-publish'); toggleMenu();" class="w-full flex items-center p-3 rounded-xl hover:bg-gray-800 text-left"><i class="fas fa-pen-nib mr-4 w-5"></i> Đăng truyện mới</button>
+                </nav>
+            </div>
+            <div class="bg-[#0E1210] p-4 rounded-xl text-center">
+                <button class="w-full bg-green-400 text-black font-bold py-2.5 rounded-lg text-sm">Đăng nhập / Đăng ký</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="flex-1 max-w-7xl w-full mx-auto grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 p-4 md:p-6 pb-24 lg:pb-6">
+        
+        <aside class="hidden lg:flex flex-col justify-between bg-dark-card p-6 rounded-2xl h-[calc(100vh-3rem)] sticky top-6 border border-gray-950">
+            <div class="space-y-8">
+                <div class="flex items-center gap-3 text-2xl font-bold text-green-400 tracking-wider">
+                    <i class="fas fa-book-open"></i> Lorebook
+                </div>
+                <nav class="space-y-2">
+                    <button onclick="switchScreen('screen-home')" class="nav-aside-btn w-full flex items-center gap-4 px-4 py-3 rounded-xl font-medium transition text-left text-gray-400 hover:bg-gray-800" data-target="screen-home">
+                        <i class="fas fa-home text-lg"></i> Trang chủ
+                    </button>
+                    <button onclick="switchScreen('screen-library')" class="nav-aside-btn w-full flex items-center gap-4 px-4 py-3 rounded-xl font-medium transition text-left text-gray-400 hover:bg-gray-800" data-target="screen-library">
+                        <i class="fas fa-book text-lg"></i> Thư viện của bạn
+                    </button>
+                    <button onclick="switchScreen('screen-publish')" class="nav-aside-btn w-full flex items-center gap-4 px-4 py-3 rounded-xl font-medium transition text-left text-gray-400 hover:bg-gray-800" data-target="screen-publish">
+                        <i class="fas fa-pen-nib text-lg"></i> Đăng truyện mới
+                    </button>
+                </nav>
+            </div>
+            <div class="bg-[#0E1210] p-4 rounded-xl text-center border border-gray-900">
+                <p class="text-xs text-gray-500 mb-2">Xin chào Độc giả!</p>
+                <button class="w-full bg-green-400 hover:bg-green-500 text-black font-bold py-2 rounded-lg text-xs transition">Đăng nhập</button>
+            </div>
+        </aside>
+
+        <main class="col-span-1 md:col-span-2 lg:col-span-2 space-y-6">
+            
+            <div id="screen-home" class="app-screen active space-y-6">
+                <div class="bg-gradient-to-r from-emerald-950 via-teal-950 to-stone-900 p-6 rounded-2xl relative overflow-hidden border border-emerald-900/40 shadow-lg">
+                    <h3 class="text-xl md:text-2xl font-bold mb-2 max-w-sm leading-snug">Tìm lại bình yên giữa những trang sách.</h3>
+                    <p class="text-xs text-gray-400 mb-5">Hôm nay bạn muốn đọc gì để chữa lành tâm hồn?</p>
+                    <button onclick="switchScreen('screen-detail')" class="bg-green-400 hover:bg-green-500 text-black px-5 py-2 rounded-full text-xs font-bold transition shadow-md">Bắt đầu đọc <i class="fas fa-arrow-right ml-1"></i></button>
+                </div>
+
+                <div>
+                    <div class="flex justify-between items-center mb-4">
+                        <h2 class="text-lg font-bold tracking-wide">Đề cử tuần này</h2>
+                    </div>
+                    <div class="bg-dark-card p-4 rounded-2xl space-y-4 cursor-pointer border border-gray-800/40 hover:border-gray-700 transition" onclick="switchScreen('screen-detail')">
+                        <div class="w-full h-72 bg-gradient-to-b from-rose-300 to-indigo-400 rounded-xl flex flex-col justify-end p-6 relative shadow-inner">
+                            <span class="absolute top-3 right-3 bg-black/60 backdrop-blur px-2.5 py-1 rounded-md text-xs text-yellow-400 font-bold"><i class="fas fa-star mr-1"></i>4.9</span>
+                            <h3 class="text-2xl font-serif font-bold text-white drop-shadow-md">WHISPERS OF SERENITY</h3>
+                            <p class="text-xs text-white/90 mt-1">A Novel by Luna Chen</p>
+                        </div>
+                        <div class="space-y-2">
+                            <span class="bg-yellow-500/10 text-yellow-400 text-[10px] px-2 py-1 rounded uppercase font-bold tracking-wider">Bán chạy nhất</span>
+                            <h3 class="text-base font-bold text-white">Whispers of Serenity</h3>
+                            <p class="text-xs text-gray-400 line-clamp-3 leading-relaxed">Một hành trình nhẹ nhàng đi qua những khung cảnh thiên nhiên thơ mộng, nơi con người tìm thấy sự kết nối sâu sắc với bản thân và vũ trụ...</p>
+                        </div>
+                        <button class="w-full bg-gray-800 hover:bg-gray-700 text-white py-3 rounded-xl text-xs font-bold transition">Đọc tác phẩm ngay</button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="screen-detail" class="app-screen space-y-6">
+                <button onclick="switchScreen('screen-home')" class="text-gray-400 hover:text-white text-xs"><i class="fas fa-chevron-left mr-2"></i> Quay lại trang chủ</button>
+                <div class="flex flex-col sm:flex-row gap-5 bg-dark-card p-5 rounded-2xl border border-gray-800/40">
+                    <div class="w-40 h-56 mx-auto sm:mx-0 bg-gradient-to-b from-pink-300 to-indigo-400 rounded-xl shadow-md flex-shrink-0"></div>
+                    <div class="flex flex-col justify-between space-y-3 sm:space-y-0">
+                        <div>
+                            <h2 class="text-2xl font-bold text-white text-center sm:text-left">Whispers of Serenity</h2>
+                            <p class="text-xs text-gray-400 mt-1 text-center sm:text-left">Tác giả: <span class="text-green-400 font-medium">Luna Chen</span></p>
+                        </div>
+                        <div class="flex flex-wrap justify-center sm:justify-start gap-1.5 text-[11px]">
+                            <span class="bg-gray-800 px-3 py-1 rounded-md text-gray-300">Lãng mạn</span>
+                            <span class="bg-gray-800 px-3 py-1 rounded-md text-gray-300">Chữa lành</span>
+                            <span class="bg-gray-800 px-3 py-1 rounded-md text-gray-300">Đương đại</span>
+                        </div>
+                        <div class="grid grid-cols-3 gap-4 text-center bg-[#0E1210] p-2.5 rounded-xl text-[11px]">
+                            <div><p class="text-gray-500">CHƯƠNG</p><p class="font-bold text-sm text-white">124</p></div>
+                            <div><p class="text-gray-500">LƯỢT ĐỌC</p><p class="font-bold text-sm text-white">1.2M</p></div>
+                            <div><p class="text-gray-500">THÍCH</p><p class="font-bold text-sm text-white">45.8K</p></div>
+                        </div>
+                        <div class="flex gap-2">
+                            <button onclick="switchScreen('screen-reading')" class="flex-1 bg-green-400 hover:bg-green-500 text-black font-bold py-2.5 rounded-xl text-xs transition">Đọc chương mới nhất</button>
+                            <button class="px-3 border border-gray-700 hover:bg-gray-800 text-gray-400 hover:text-white rounded-xl transition"><i class="far fa-bookmark"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-dark-card p-5 rounded-2xl space-y-2">
+                    <h3 class="font-bold text-sm text-white border-l-2 border-green-400 pl-2">Tóm tắt nội dung</h3>
+                    <p class="text-xs text-gray-400 leading-relaxed">"Whispers of Serenity" kể về Linh, một họa sĩ trẻ đang mất phương hướng giữa cuộc sống đô thị xô bồ. Quyết định rời bỏ thành phố để tìm lại bản ngã, cô bắt đầu hành trình đến những vùng đất mới lạ...</p>
+                </div>
+            </div>
+
+            <div id="screen-reading" class="app-screen bg-[#0A0D0B] p-5 rounded-2xl border border-gray-900 space-y-6">
+                <div class="flex justify-between items-center text-xs text-gray-500">
+                    <button onclick="switchScreen('screen-detail')" class="hover:text-white"><i class="fas fa-arrow-left mr-1"></i> Trở về</button>
+                    <span class="font-medium text-gray-400">Chương 124: Ánh sáng cuối con đường</span>
+                    <button class="hover:text-white"><i class="fas fa-font"></i></button>
+                </div>
+                <div class="space-y-4 text-sm leading-relaxed font-serif text-gray-300 tracking-wide max-w-xl mx-auto">
+                    <p>Gió thổi qua những kẽ lá, mang theo mùi vị của ký ức và sự lãng quên. Trong khoảnh khắc ấy, khi bóng tối dường như đã nuốt chửng mọi hy vọng, một tia sáng yếu ớt bắt đầu nhen nhóm nơi cuối con đường mòn.</p>
+                    <p class="bg-emerald-950/20 p-3 rounded-xl border-l-4 border-green-400 my-4 text-gray-200 italic">"Có lẽ," anh tự nhủ, giọng nói tan biến vào không trung, "ánh sáng không phải là đích đến, mà là cách chúng ta nhìn nhận những vết sẹo mình mang theo."</p>
+                    <p>Khu rừng im lìm như đang chứng kiến một cuộc chuyển giao vĩ đại. Những tán cây cổ thụ vươn cành như những cánh tay hộ vệ, che chở cho hành trình của một tâm hồn đang tìm về cội nguồn của chính mình...</p>
+                </div>
+                <div class="pt-4 border-t border-gray-900 flex justify-between text-xs text-gray-400">
+                    <button class="hover:text-white"><i class="fas fa-chevron-left mr-1"></i> Trước</button>
+                    <button class="bg-gray-800 text-gray-200 px-4 py-1.5 rounded-full hover:bg-gray-700"><i class="fas fa-list mr-1"></i> Mục lục</button>
+                    <button class="hover:text-white">Tiếp theo <i class="fas fa-chevron-right ml-1"></i></button>
+                </div>
+            </div>
+
+            <div id="screen-publish" class="app-screen bg-dark-card p-5 rounded-2xl border border-gray-800/40 space-y-4">
+                <h2 class="text-lg font-bold text-white border-l-2 border-green-400 pl-2">Đăng tác phẩm sáng tác mới</h2>
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs">
+                    <div class="sm:col-span-1">
+                        <label class="block text-gray-400 mb-2">Ảnh bìa (3:4)</label>
+                        <div class="w-full h-48 border-2 border-dashed border-gray-700 hover:border-green-400 rounded-xl flex flex-col items-center justify-center bg-[#0E1210] text-gray-500 cursor-pointer transition">
+                            <i class="fas fa-cloud-upload-alt text-2xl mb-2"></i>
+                            <span class="text-[11px]">Tải ảnh lên</span>
+                        </div>
+                    </div>
+                    <div class="sm:col-span-2 space-y-3">
+                        <div>
+                            <label class="block text-gray-400 mb-1">Tên tác phẩm truyện</label>
+                            <input type="text" placeholder="Nhập tên..." class="w-full bg-[#0E1210] border border-gray-800 rounded-xl p-3 text-white focus:outline-none focus:border-green-400 text-xs">
+                        </div>
+                        <div>
+                            <label class="block text-gray-400 mb-1">Tóm tắt cốt truyện</label>
+                            <textarea rows="4" placeholder="Viết giới thiệu sơ lược..." class="w-full bg-[#0E1210] border border-gray-800 rounded-xl p-3 text-white focus:outline-none focus:border-green-400 text-xs"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex gap-2 pt-2">
+                    <button onclick="switchScreen('screen-home')" class="flex-1 bg-green-400 hover:bg-green-500 text-black font-bold py-3 rounded-xl text-xs transition">Xuất bản</button>
+                    <button class="flex-1 bg-gray-800 text-white py-3 rounded-xl text-xs hover:bg-gray-700">Lưu nháp</button>
+                </div>
+            </div>
+
+            <div id="screen-library" class="app-screen space-y-4">
+                <h2 class="text-lg font-bold text-white">Tác phẩm đã hoàn tất</h2>
+                <div class="space-y-3">
+                    <div class="bg-dark-card p-4 rounded-xl flex justify-between items-center border border-gray-800/40">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-14 bg-emerald-950 border border-green-500 rounded text-[9px] text-green-400 flex items-center justify-center font-bold">DONE</div>
+                            <div>
+                                <h4 class="font-bold text-xs text-white">Rừng Thẳm Tiếng Vang</h4>
+                                <p class="text-[11px] text-gray-400">Trần Minh Huy</p>
+                            </div>
+                        </div>
+                        <button onclick="switchScreen('screen-reading')" class="bg-gray-800 hover:bg-gray-700 text-white text-xs px-3 py-1.5 rounded-lg transition">Đọc lại</button>
+                    </div>
+                    <div class="bg-dark-card p-4 rounded-xl flex justify-between items-center border border-gray-800/40">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-14 bg-blue-950 border border-blue-500 rounded text-[9px] text-blue-400 flex items-center justify-center font-bold">DONE</div>
+                            <div>
+                                <h4 class="font-bold text-xs text-white">Dòng Chảy Vĩnh Hằng</h4>
+                                <p class="text-[11px] text-gray-400">Lê Nguyễn An</p>
+                            </div>
+                        </div>
+                        <button onclick="switchScreen('screen-reading')" class="bg-gray-800 hover:bg-gray-700 text-white text-xs px-3 py-1.5 rounded-lg transition">Đọc lại</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <section class="hidden md:block col-span-1 bg-dark-card p-5 rounded-2xl h-max border border-gray-800/40 space-y-5">
+            <h3 class="text-sm font-bold text-gray-400 tracking-wider uppercase"><i class="fas fa-chart-line mr-2 text-green-400"></i>Tiến độ đọc</h3>
+            
+            <div class="bg-[#0E1210] p-4 rounded-xl border border-gray-900 cursor-pointer hover:border-gray-700 transition" onclick="switchScreen('screen-reading')">
+                <div class="flex justify-between items-start mb-2">
+                    <div>
+                        <span class="text-[9px] bg-orange-500/10 text-orange-400 px-1.5 py-0.5 rounded uppercase font-bold">Đang đọc</span>
+                        <h4 class="text-xs font-bold text-white mt-1">The Twisted Timepace</h4>
+                    </div>
+                    <span class="text-[11px] text-gray-500">C.12</span>
+                </div>
+                <div class="w-full bg-gray-800 h-1.5 rounded-full mt-3">
+                    <div class="bg-green-400 h-1.5 rounded-full" style="width: 65%"></div>
+                </div>
+                <p class="text-[10px] text-gray-500 mt-1 text-right">Đã hoàn thành 65%</p>
+            </div>
+
+            <div class="bg-gradient-to-b from-[#0E1210] to-[#050706] p-4 rounded-xl border border-gray-950 text-center">
+                <p class="text-xs italic text-gray-400">"Sách là gương soi của tâm hồn, nơi bạn tìm lại mảnh ghép đã mất."</p>
+            </div>
+
+            <div class="grid grid-cols-2 gap-3 text-center">
+                <div class="bg-[#0E1210] p-3 rounded-xl border border-gray-900">
+                    <p class="text-xl font-bold text-white">12</p>
+                    <p class="text-[9px] text-gray-500 uppercase tracking-wider">Đã đọc xong</p>
+                </div>
+                <div class="bg-[#0E1210] p-3 rounded-xl border border-gray-900">
+                    <p class="text-xl font-bold text-green-400">48</p>
+                    <p class="text-[9px] text-gray-500 uppercase tracking-wider">Ngày liên tiếp</p>
+                </div>
+            </div>
+
+            <div class="bg-stone-900/40 p-3.5 rounded-xl text-center border border-gray-800/40">
+                <p class="text-[11px] text-gray-400 font-medium">Độc giả kiên trì 2026 🏅</p>
+                <p class="text-[10px] text-gray-500 mt-1">Hệ thống ghi nhận bạn đã xem tổng cộng <span class="text-white font-bold">4.8k</span> trang sách.</p>
+            </div>
+        </section>
+
+    </div>
+
+    <footer class="lg:hidden fixed bottom-0 left-0 right-0 bg-[#171C19]/95 backdrop-blur-md border-t border-gray-900 flex justify-around py-2.5 z-40">
+        <button onclick="switchScreen('screen-home')" class="nav-mobile-btn flex flex-col items-center text-xs text-gray-400" data-target="screen-home">
+            <i class="fas fa-home text-lg"></i><span class="text-[10px] mt-1">Trang chủ</span>
+        </button>
+        <button onclick="switchScreen('screen-library')" class="nav-mobile-btn flex flex-col items-center text-xs text-gray-400" data-target="screen-library">
+            <i class="fas fa-book text-lg"></i><span class="text-[10px] mt-1">Thư viện</span>
+        </button>
+        <button onclick="switchScreen('screen-publish')" class="nav-mobile-btn flex flex-col items-center text-xs text-gray-400" data-target="screen-publish">
+            <i class="fas fa-pen-nib text-lg"></i><span class="text-[10px] mt-1">Đăng truyện</span>
+        </button>
+    </footer>
+
+
+    <script>
+        // Hàm chuyển màn hình thông minh (Sync đồng thời cả giao diện Mobile lẫn Desktop)
+        function switchScreen(screenId) {
+            // Ẩn tất cả màn hình chính
+            const screens = document.querySelectorAll('.app-screen');
+            screens.forEach(screen => screen.classList.remove('active'));
+            
+            // Hiển thị màn hình được chỉ định
+            const targetScreen = document.getElementById(screenId);
+            if (targetScreen) {
+                targetScreen.classList.add('active');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+
+            // Đồng bộ màu sáng trạng thái cho thanh điều hướng dưới (Mobile)
+            document.querySelectorAll('.nav-mobile-btn').forEach(btn => {
+                if (btn.getAttribute('data-target') === screenId) {
+                    btn.classList.replace('text-gray-400', 'text-green-400');
+                } else {
+                    btn.classList.replace('text-green-400', 'text-gray-400');
+                }
+            });
+
+            // Đồng bộ màu sáng trạng thái cho thanh menu trái (Desktop)
+            document.querySelectorAll('.nav-aside-btn').forEach(btn => {
+                if (btn.getAttribute('data-target') === screenId) {
+                    btn.classList.replace('text-gray-400', 'text-green-400');
+                    btn.classList.add('bg-emerald-950/40');
+                } else {
+                    btn.classList.replace('text-green-400', 'text-gray-400');
+                    btn.classList.remove('bg-emerald-950/40');
+                }
+            });
+        }
+
+        // Bật/Tắt Menu Sidebar dạng rút ở di động
+        function toggleMenu() {
+            const menu = document.getElementById('side-menu');
+            menu.classList.toggle('hidden');
+        }
+
+        // Đặt màn hình mặc định ban đầu khi tải web
+        document.addEventListener('DOMContentLoaded', () => {
+            switchScreen('screen-home');
+        });
+    </script>
+</body>
+</html>
