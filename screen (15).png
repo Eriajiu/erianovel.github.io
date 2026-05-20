@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lorebook - Đăng Nhập</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Manrope:wght@600;700;800&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "secondary-fixed-dim": "#c1c9bc",
+                      "on-secondary-container": "#b0b7ab",
+                      "primary-container": "#b7d8b0",
+                      "on-tertiary-fixed-variant": "#3e4a3b",
+                      "on-surface-variant": "#c3c8be",
+                      "surface-bright": "#353b34",
+                      "on-tertiary-fixed": "#131e12",
+                      "secondary-container": "#41493f",
+                      "on-error": "#690005",
+                      "tertiary-container": "#c5d3c0",
+                      "surface-container-low": "#181d17",
+                      "surface-container": "#1c211b",
+                      "on-primary-fixed-variant": "#314d2f",
+                      "primary": "#d3f5cb",
+                      "surface-variant": "#31362f",
+                      "on-secondary": "#2b3229",
+                      "secondary-fixed": "#dde5d7",
+                      "outline": "#8d9289",
+                      "outline-variant": "#434840",
+                      "on-tertiary": "#283326",
+                      "error": "#ffb4ab",
+                      "surface-container-high": "#262b25",
+                      "primary-fixed": "#caecc3",
+                      "on-tertiary-container": "#4f5b4c",
+                      "on-error-container": "#ffdad6",
+                      "inverse-on-surface": "#2d322b",
+                      "background": "#10150f",
+                      "surface-tint": "#afcfa8",
+                      "on-secondary-fixed-variant": "#41493f",
+                      "error-container": "#93000a",
+                      "tertiary": "#e1efdb",
+                      "surface-container-highest": "#31362f",
+                      "primary-fixed-dim": "#afcfa8",
+                      "on-primary-container": "#425f3f",
+                      "tertiary-fixed": "#d9e7d3",
+                      "surface-dim": "#10150f",
+                      "inverse-surface": "#dfe4da",
+                      "inverse-primary": "#496645",
+                      "surface": "#10150f",
+                      "on-surface": "#dfe4da",
+                      "tertiary-fixed-dim": "#bdcab7",
+                      "surface-container-lowest": "#0b0f0a",
+                      "secondary": "#c1c9bc",
+                      "on-secondary-fixed": "#171d15",
+                      "on-primary-fixed": "#062107",
+                      "on-primary": "#1b361b",
+                      "on-background": "#dfe4da"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "unit": "8px",
+                      "container-max": "1200px",
+                      "margin-mobile": "16px",
+                      "gutter": "24px",
+                      "margin-desktop": "40px"
+              },
+              "fontFamily": {
+                      "label-sm": ["Inter"],
+                      "label-md": ["Inter"],
+                      "headline-lg-mobile": ["Manrope"],
+                      "display": ["Manrope"],
+                      "body-lg": ["Inter"],
+                      "headline-md": ["Manrope"],
+                      "headline-lg": ["Manrope"],
+                      "body-md": ["Inter"]
+              },
+              "fontSize": {
+                      "label-sm": ["12px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                      "label-md": ["14px", {"lineHeight": "1.4", "letterSpacing": "0.02em", "fontWeight": "500"}],
+                      "headline-lg-mobile": ["24px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                      "display": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                      "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                      "headline-lg": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                      "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}]
+              }
+            },
+          },
+        }
+    </script>
+<style>.material-symbols-outlined {
+    font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+    vertical-align: middle
+    }
+.grainy-bg {
+    background-color: #10150f;
+    background-image: url(https://lh3.googleusercontent.com/aida-public/AB6AXuBsVQlNEdGXDQhDVi85AqyXMLl5WIXV85spXPFqF1mE9-cC9XhE1zEuocdEbULz5OgockeWr3nlOUbhho5clfNtYHkcrIB9Rh_OMkFPV0rC_Y4wj6WoRxJBPE7ttLbm7s1lMnS2o7Yrpnvyw9OkoiA23IPBI_EFpPNkkImT_NfanLq1eA_Oy6GaKgLxchm6sKgyzG08u3P8viF4jWl0RrBaXtixJjzz9RBQ7sonFP1Vd0WtTab3MyzqTLTXyHXOYnDdsZ0M5XQoBWco);
+    background-repeat: repeat
+    }
+.glass-panel {
+    background: rgba(36, 43, 34, 0.7);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.05)
+    }</style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background grainy-bg min-h-screen flex items-center justify-center font-body-md px-margin-mobile">
+<!-- Login Container -->
+<main class="w-full max-w-[440px] animate-in fade-in slide-in-from-bottom-4 duration-1000">
+<!-- Header / Logo Area -->
+<div class="text-center mb-10">
+<div class="inline-flex items-center justify-center w-16 h-16 rounded-xl bg-surface-container-high mb-6">
+<span class="material-symbols-outlined text-primary text-[32px]">auto_stories</span>
+</div>
+<h1 class="font-display text-display text-primary tracking-tighter mb-2">Lorebook</h1>
+<p class="font-headline-md text-headline-md text-on-surface-variant">Chào mừng trở lại</p>
+<p class="font-body-md text-on-surface-variant opacity-70 mt-1">Mở kho tàng tri thức cá nhân của bạn</p>
+</div>
+<!-- Login Form Card -->
+<div class="glass-panel p-8 rounded-xl shadow-2xl">
+<form class="space-y-6" onsubmit="event.preventDefault();">
+<!-- Email/Username Input -->
+<div class="space-y-2">
+<label class="font-label-md text-label-md text-on-surface ml-1">Email hoặc tên đăng nhập</label>
+<div class="relative group">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant group-focus-within:text-primary-container transition-colors">person</span>
+<input class="w-full h-14 pl-12 pr-4 bg-surface-container-lowest border border-outline-variant rounded-lg focus:ring-1 focus:ring-primary-container focus:border-primary-container bg-opacity-50 transition-all outline-none text-on-surface placeholder:text-on-surface-variant/40" placeholder="username@email.com" type="text"/>
+</div>
+</div>
+<!-- Password Input -->
+<div class="space-y-2">
+<div class="flex justify-between items-center px-1">
+<label class="font-label-md text-label-md text-on-surface">Mật khẩu</label>
+<a class="font-label-sm text-label-sm text-primary-container hover:underline transition-all" href="#">Quên mật khẩu?</a>
+</div>
+<div class="relative group">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant group-focus-within:text-primary-container transition-colors">lock</span>
+<input class="w-full h-14 pl-12 pr-12 bg-surface-container-lowest border border-outline-variant rounded-lg focus:ring-1 focus:ring-primary-container focus:border-primary-container bg-opacity-50 transition-all outline-none text-on-surface placeholder:text-on-surface-variant/40" placeholder="••••••••" type="password"/>
+<button class="absolute right-4 top-1/2 -translate-y-1/2 text-on-surface-variant hover:text-on-surface transition-colors" type="button">
+<span class="material-symbols-outlined">visibility</span>
+</button>
+</div>
+</div>
+<!-- Action Button -->
+<button class="w-full h-14 bg-primary-container text-on-primary-container font-headline-md text-headline-md rounded-lg hover:brightness-110 active:scale-[0.98] transition-all shadow-lg shadow-primary-container/10" type="submit">
+                    Đăng nhập
+                </button>
+</form>
+<!-- Divider -->
+<div class="relative my-8">
+<div class="absolute inset-0 flex items-center">
+<div class="w-full border-t border-outline-variant opacity-30"></div>
+</div>
+<div class="relative flex justify-center">
+<span class="bg-surface-container px-4 text-label-sm font-label-sm text-on-surface-variant">hoặc tiếp tục với</span>
+</div>
+</div>
+<!-- Social Logins -->
+<div class="grid grid-cols-2 gap-4">
+<button class="flex items-center justify-center h-14 border border-outline-variant rounded-lg hover:bg-surface-container-highest transition-colors space-x-2">
+<img alt="Google" class="w-5 h-5 grayscale opacity-80" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDxflnUNOyIcKQn3_ccC1zkRJugBifRjRTRrOMSTYWXq71xcNWxoG3912c1kEZv2xTmqyOeh5pynUS4A7ytqIAdHWHGLSgKq5Tuv4MWUxcjZA-siqErsyoulPbOn_uF2RFclm4BeyZLEA2F0Zm3aPPkDe3hy4Y4vmSLJ4Z1yr-1Uv1miBEMpWbZGM-R2F6HkIG5Y5kfYpMSQIZjNFSXVLNx-BFxik-7gX_YQclOx-Fqluyvppeecs3yl01X6ro7NNszDNZkpKf0Kg4q"/>
+<span class="font-label-md text-label-md text-on-surface">Google</span>
+</button>
+<button class="flex items-center justify-center h-14 border border-outline-variant rounded-lg hover:bg-surface-container-highest transition-colors space-x-2">
+<span class="material-symbols-outlined text-on-surface" style="font-variation-settings: 'FILL' 1;">ios</span>
+<span class="font-label-md text-label-md text-on-surface">Apple</span>
+</button>
+</div>
+</div>
+<!-- Footer -->
+<p class="text-center mt-8 font-body-md text-on-surface-variant">
+            Chưa có tài khoản? 
+            <a class="text-primary font-bold hover:underline transition-all" href="#">Đăng ký ngay</a>
+</p>
+</main>
+<!-- Visual Accents (Background Elements) -->
+<div class="fixed top-[-10%] left-[-10%] w-[40%] h-[40%] bg-primary-container/5 rounded-full blur-[120px] -z-10"></div>
+<div class="fixed bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-on-tertiary-fixed-variant/10 rounded-full blur-[120px] -z-10"></div>
+<script>
+        // Simple micro-interaction for password toggle
+        const toggleBtn = document.querySelector('button .material-symbols-outlined[innerText="visibility"]');
+        if (toggleBtn) {
+            toggleBtn.parentElement.addEventListener('click', function() {
+                const input = this.previousElementSibling;
+                const icon = this.querySelector('span');
+                if (input.type === 'password') {
+                    input.type = 'text';
+                    icon.textContent = 'visibility_off';
+                } else {
+                    input.type = 'password';
+                    icon.textContent = 'visibility';
+                }
+            });
+        }
+
+        // Form focus visual feedback
+        const inputs = document.querySelectorAll('input');
+        inputs.forEach(input => {
+            input.addEventListener('focus', () => {
+                input.parentElement.parentElement.classList.add('scale-[1.01]');
+            });
+            input.addEventListener('blur', () => {
+                input.parentElement.parentElement.classList.remove('scale-[1.01]');
+            });
+        });
+    </script>
+</body></html>

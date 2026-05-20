@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lorebook Navigation</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Manrope:wght@600;700;800&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "tertiary-fixed-dim": "#bdcab7",
+                      "outline-variant": "#434840",
+                      "surface-dim": "#10150f",
+                      "on-surface-variant": "#c3c8be",
+                      "surface-tint": "#afcfa8",
+                      "primary": "#d3f5cb",
+                      "on-tertiary-fixed-variant": "#3e4a3b",
+                      "on-tertiary-fixed": "#131e12",
+                      "on-primary": "#1b361b",
+                      "outline": "#8d9289",
+                      "background": "#10150f",
+                      "inverse-primary": "#496645",
+                      "secondary-container": "#41493f",
+                      "secondary": "#c1c9bc",
+                      "on-secondary-container": "#b0b7ab",
+                      "on-background": "#dfe4da",
+                      "surface-container-lowest": "#0b0f0a",
+                      "on-tertiary": "#283326",
+                      "error-container": "#93000a",
+                      "error": "#ffb4ab",
+                      "inverse-on-surface": "#2d322b",
+                      "surface-variant": "#31362f",
+                      "on-primary-container": "#425f3f",
+                      "surface-container-high": "#262b25",
+                      "primary-fixed": "#caecc3",
+                      "on-surface": "#dfe4da",
+                      "on-secondary-fixed": "#171d15",
+                      "on-primary-fixed": "#062107",
+                      "surface-container": "#1c211b",
+                      "on-error-container": "#ffdad6",
+                      "surface-container-low": "#181d17",
+                      "on-tertiary-container": "#4f5b4c",
+                      "inverse-surface": "#dfe4da",
+                      "on-secondary": "#2b3229",
+                      "secondary-fixed": "#dde5d7",
+                      "tertiary-fixed": "#d9e7d3",
+                      "tertiary-container": "#c5d3c0",
+                      "on-secondary-fixed-variant": "#41493f",
+                      "surface": "#10150f",
+                      "on-error": "#690005",
+                      "surface-container-highest": "#31362f",
+                      "primary-fixed-dim": "#afcfa8",
+                      "secondary-fixed-dim": "#c1c9bc",
+                      "tertiary": "#e1efdb",
+                      "surface-bright": "#353b34",
+                      "primary-container": "#b7d8b0",
+                      "on-primary-fixed-variant": "#314d2f"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "margin-desktop": "40px",
+                      "container-max": "1200px",
+                      "margin-mobile": "16px",
+                      "gutter": "24px",
+                      "unit": "8px"
+              },
+              "fontFamily": {
+                      "label-sm": ["Inter"],
+                      "body-md": ["Inter"],
+                      "headline-md": ["Manrope"],
+                      "label-md": ["Inter"],
+                      "headline-lg": ["Manrope"],
+                      "headline-lg-mobile": ["Manrope"],
+                      "display": ["Manrope"],
+                      "body-lg": ["Inter"]
+              },
+              "fontSize": {
+                      "label-sm": ["12px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                      "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                      "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                      "label-md": ["14px", {"lineHeight": "1.4", "letterSpacing": "0.02em", "fontWeight": "500"}],
+                      "headline-lg": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                      "headline-lg-mobile": ["24px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                      "display": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .sidebar-transition {
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .backdrop-blur-sm {
+            backdrop-filter: blur(8px);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen overflow-hidden">
+<!-- Mock Background Content (Dimmed Lorebook Homepage) -->
+<main class="fixed inset-0 z-0 opacity-40 grayscale-[0.2]">
+<header class="flex items-center justify-between px-margin-mobile h-16 bg-surface">
+<span class="font-display text-headline-lg-mobile text-primary">Lorebook</span>
+<div class="w-10 h-10 rounded-full bg-surface-variant flex items-center justify-center">
+<span class="material-symbols-outlined text-on-surface-variant">menu</span>
+</div>
+</header>
+<section class="p-margin-mobile space-y-gutter">
+<div class="h-48 w-full bg-surface-container rounded-xl overflow-hidden relative">
+<img class="w-full h-full object-cover" data-alt="A cinematic, low-angle shot of a classic mahogany library at dusk. Dusty sunbeams filter through high windows, illuminating ancient leather-bound books and a green shaded banker's lamp. The atmosphere is deeply academic and mysterious, using a palette of forest greens, dark woods, and warm amber light to evoke a sense of professional digital archiving." src="https://lh3.googleusercontent.com/aida-public/AB6AXuADhmWIqwlK-qOoX3xvwq9FmqeI-bI7XILO3ZejblBEFjeOTdwlTJkq5ESatFF_1BI4lHOeSk-tioS0r2iyXoH_zXBKHUNrPlfXZB6olVACSKctFZdnwd4GZGj47TNCJI-NwJG2A4e1L831HpnygEGO9VCdxp556irbPGPdsfvTrWf81Picb8jnthodz-QcOpKaFmiD-3P4c4vWvDHXj048FR7yPK8DKGDyYsqHg7UyTl9v_Ltnv2wuqLrUGjf-9UklWlmVMhJz6Qgs"/>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div class="h-40 bg-surface-container rounded-xl p-4 space-y-2 border border-outline-variant/10">
+<div class="w-full h-24 bg-surface-variant rounded-lg"></div>
+<div class="h-4 bg-on-surface-variant/20 rounded w-3/4"></div>
+</div>
+<div class="h-40 bg-surface-container rounded-xl p-4 space-y-2 border border-outline-variant/10">
+<div class="w-full h-24 bg-surface-variant rounded-lg"></div>
+<div class="h-4 bg-on-surface-variant/20 rounded w-1/2"></div>
+</div>
+</div>
+</section>
+</main>
+<!-- Overlay Backdrop -->
+<div class="fixed inset-0 bg-background/80 backdrop-blur-sm z-40 cursor-pointer opacity-100 transition-opacity duration-300" id="drawer-backdrop"></div>
+<!-- Sidebar Navigation Drawer -->
+<aside class="fixed top-0 left-0 h-full w-[280px] bg-surface z-50 shadow-2xl sidebar-transition translate-x-0 flex flex-col border-r border-outline-variant/10" id="sidebar">
+<!-- Brand Section -->
+<div class="p-6 pb-8 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 bg-primary-container rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary-container text-[20px]" style="font-variation-settings: 'FILL' 1;">auto_stories</span>
+</div>
+<h1 class="font-display text-headline-lg-mobile text-primary tracking-tight">Lorebook</h1>
+</div>
+<button class="p-2 hover:bg-surface-variant/20 rounded-full transition-colors active:scale-90" id="close-drawer">
+<span class="material-symbols-outlined text-on-surface-variant">close</span>
+</button>
+</div>
+<!-- Navigation Items -->
+<nav class="flex-1 px-4 space-y-1">
+<!-- Home -->
+<a class="group flex items-center gap-4 px-4 py-3 bg-secondary-container text-on-secondary-container rounded-lg transition-all active:scale-95" href="#">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">home</span>
+<span class="font-label-md text-label-md">Home (Trang chủ)</span>
+</a>
+<!-- Library -->
+<a class="group flex items-center gap-4 px-4 py-3 text-on-surface-variant hover:bg-surface-variant/20 rounded-lg transition-all active:scale-95" href="#">
+<span class="material-symbols-outlined group-hover:text-primary transition-colors">auto_stories</span>
+<span class="font-label-md text-label-md">Library (Thư viện)</span>
+</a>
+<!-- Publish Story -->
+<a class="group flex items-center gap-4 px-4 py-3 text-on-surface-variant hover:bg-surface-variant/20 rounded-lg transition-all active:scale-95" href="#">
+<span class="material-symbols-outlined group-hover:text-primary transition-colors">edit_note</span>
+<span class="font-label-md text-label-md">Publish Story (Đăng truyện)</span>
+</a>
+</nav>
+<!-- Divider -->
+<div class="px-8 my-4">
+<div class="h-px bg-outline-variant/20 w-full"></div>
+</div>
+<!-- User Actions Section -->
+<div class="px-4 pb-12">
+<div class="p-4 bg-surface-container-low rounded-xl border border-outline-variant/10">
+<p class="font-label-sm text-label-sm text-on-surface-variant mb-4 px-1">Welcome to Lorebook</p>
+<div class="space-y-2">
+<button class="w-full flex items-center justify-center gap-2 py-3 bg-primary-container text-on-primary-container font-label-md text-label-md rounded-lg active:scale-[0.98] transition-transform">
+<span class="material-symbols-outlined text-[18px]">login</span>
+                        Login / Register
+                    </button>
+<p class="text-center font-label-sm text-label-sm text-outline-variant mt-3 italic">
+                        (Đăng nhập / Đăng ký)
+                    </p>
+</div>
+</div>
+<div class="mt-6 px-4 flex items-center gap-2 text-outline-variant opacity-60">
+<span class="material-symbols-outlined text-[16px]">verified_user</span>
+<span class="text-[11px] font-label-sm tracking-wider uppercase">Secure Archive v2.0</span>
+</div>
+</div>
+</aside>
+<script>
+        const sidebar = document.getElementById('sidebar');
+        const backdrop = document.getElementById('drawer-backdrop');
+        const closeBtn = document.getElementById('close-drawer');
+
+        function toggleDrawer(open) {
+            if (open) {
+                sidebar.classList.remove('-translate-x-full');
+                sidebar.classList.add('translate-x-0');
+                backdrop.classList.remove('opacity-0', 'pointer-events-none');
+                backdrop.classList.add('opacity-100');
+            } else {
+                sidebar.classList.add('-translate-x-full');
+                sidebar.classList.remove('translate-x-0');
+                backdrop.classList.add('opacity-0', 'pointer-events-none');
+                backdrop.classList.remove('opacity-100');
+            }
+        }
+
+        backdrop.addEventListener('click', () => toggleDrawer(false));
+        closeBtn.addEventListener('click', () => toggleDrawer(false));
+
+        // Initial entry animation
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                // Ensure it's open for initial state as requested
+                toggleDrawer(true);
+            }, 100);
+        });
+
+        // Add some micro-interactions to nav items
+        document.querySelectorAll('nav a').forEach(item => {
+            item.addEventListener('mouseenter', () => {
+                if (!item.classList.contains('bg-secondary-container')) {
+                    item.style.transform = 'translateX(4px)';
+                }
+            });
+            item.addEventListener('mouseleave', () => {
+                item.style.transform = 'translateX(0)';
+            });
+        });
+    </script>
+</body></html>
